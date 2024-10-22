@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta - Parte 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="content-box">
+            <h1>Encuesta de Satisfacción - Parte 1</h1>
+            
+            <!-- Pregunta 1 - Selección Múltiple -->
+            <div class="question-container">
+                <label for="pregunta1">1. ¿Qué servicios utiliza con mayor frecuencia? (Seleccione múltiples)</label>
+                <select id="pregunta1" multiple>
+                    <option value="luz">Servicio de luz</option>
+                    <option value="agua">Servicio de agua</option>
+                    <option value="internet">Servicio de internet</option>
+                    <option value="telefonía">Servicio de telefonía</option>
+                </select>
+            </div>
+
+            <!-- Pregunta 2 - Selección Única -->
+            <div class="question-container">
+                <label for="pregunta2">2. ¿Está satisfecho con la calidad del servicio?</label>
+                <select id="pregunta2">
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <!-- Pregunta 3 - Selección Única -->
+            <div class="question-container">
+                <label for="pregunta3">3. ¿Recomendaría nuestros servicios?</label>
+                <select id="pregunta3">
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <!-- Navegación entre páginas -->
+            <div class="pagination">
+                <span><a href="play.html">&lt; 1</a></span>
+                <span><a href="playdos.html">2 &gt;</a></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

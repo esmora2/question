@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta - Parte 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="content-box">
+            <h1>Encuesta de Satisfacción - Parte 2</h1>
+
+            <!-- Pregunta 4 - Respuesta escrita -->
+            <div class="question-container">
+                <label for="pregunta4">4. ¿Qué aspectos mejorarías de nuestro servicio?</label>
+                <input type="text" id="pregunta4">
+            </div>
+
+            <!-- Pregunta 5 - Respuesta escrita -->
+            <div class="question-container">
+                <label for="pregunta5">5. ¿Algún comentario adicional?</label>
+                <input type="text" id="pregunta5">
+            </div>
+
+            <!-- Pregunta base SI y NO -->
+            <div class="question-container">
+                <h2>6. ¿Estás satisfecho con nuestros servicios?</h2>
+                <div class="button-container">
+                    <button id="yes-btn">Sí</button>
+                    <button id="no-btn">No</button>
+                </div>
+            </div>
+
+            <!-- Botón ENVIAR -->
+            <div class="button-container">
+                <button id="submit-btn">ENVIAR</button>
+            </div>
+
+            <!-- Navegación entre páginas -->
+            <div class="pagination">
+                <span><a href="play.html">&lt; 1</a></span>
+                <span><a href="playdos.html">2 &gt;</a></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lógica para mover el botón NO
+        const noBtn = document.getElementById('no-btn');
+
+        noBtn.addEventListener('mouseover', function() {
+            const randomX = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const randomY = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        });
+
+        // Lógica del botón ENVIAR
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            alert('Gracias por completar la encuesta.');
+        });
+    </script>
+</body>
+</html>
