@@ -1,5 +1,5 @@
 body {
-    background: url('assets/eeqbground.png') no-repeat center center fixed;
+    background: url('assets/eeqbground.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -90,4 +90,9 @@ button:hover {
 
 .pagination a:hover {
     text-decoration: underline;
+}
+
+.logo{
+    width: 180px;
+    height: 180px;
 }
