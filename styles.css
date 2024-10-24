@@ -1,6 +1,11 @@
+/* Fondo con imagen y capa de opacidad */
 body {
     background: url('assets/eeqbground.jpg') no-repeat center center fixed;
     background-size: cover;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body::before {
@@ -10,81 +15,107 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.3); /* Capa blanca con opacidad */
+    background-color: rgba(255, 255, 255, 0.7); /* Capa blanca con opacidad */
     z-index: -1;
 }
 
+/* Contenedor principal centrado */
 .main-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100%;
+    padding: 20px;
 }
 
+/* Contenedor del contenido con sombra y bordes redondeados */
 .content-box {
     text-align: center;
     padding: 40px;
-    background-color: white;
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
-    max-width: 500px;
-    width: 80%;
+    background-color: rgba(255, 255, 255, 0.9); /* Opacidad suave */
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más notable */
+    max-width: 600px; /* Ancho máximo */
+    width: 100%;
+    margin: auto;
 }
 
+/* Encabezado principal */
 h1 {
-    font-size: 22px;
-    margin-bottom: 30px;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
 }
 
+/* Contenedor de las preguntas */
 .question-container {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-align: left;
 }
 
+/* Estilo de los labels */
 label {
     display: block;
     margin-bottom: 10px;
     font-size: 18px;
+    font-weight: bold;
+    color: #555;
 }
 
+/* Estilo de los inputs y selects */
 select, input[type="text"] {
     width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
     font-size: 16px;
+    transition: border 0.3s ease;
+    margin-top: 5px;
 }
 
+/* Mejora en hover para inputs y selects */
+select:hover, input[type="text"]:hover {
+    border: 1px solid #bbb;
+}
+
+/* Contenedor de los botones con más espacio entre ellos */
 .button-container {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
+/* Estilo de los botones */
 button {
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 18px;
     cursor: pointer;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
 }
 
+/* Hover para botones */
 button:hover {
     background-color: #45a049;
+    transform: scale(1.05);
 }
 
+/* Estilo de la paginación */
 .pagination {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .pagination a {
     color: #007bff;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 15px;
     font-size: 18px;
 }
 
@@ -92,7 +123,138 @@ button:hover {
     text-decoration: underline;
 }
 
-.logo{
-    width: 180px;
-    height: 180px;
+/* Estilo del logo */
+.logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Media Queries para adaptabilidad */
+@media (max-width: 768px) {
+    .content-box {
+        padding: 30px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+
+    .question-container {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .pagination a {
+        font-size: 16px;
+    }
+}
+
+/* Estilo para el fondo del modal */
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Estilo del contenedor del modal */
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Estilo del encabezado dentro del modal */
+.modal-content h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo del texto dentro del modal */
+.modal-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Botón de cerrar dentro del modal */
+.modal-close-btn {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover para el botón de cerrar */
+.modal-close-btn:hover {
+    background-color: darkred;
+}
+
+/* Estilo para el botón "Sí" en el modal */
+.modal-confirm-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover para el botón "Sí" en el modal */
+.modal-confirm-btn:hover {
+    background-color: #45a049;
+}
+
+/* Ocultar el modal inicialmente */
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }

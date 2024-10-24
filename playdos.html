@@ -9,23 +9,40 @@
 <body>
     <div class="main-container">
         <div class="content-box">
-            <h1>Encuesta de empleo de herramientas de IA - Seccion 2</h1>
+            <h1>Encuesta de empleo de herramientas de IA - Sección 2</h1>
+
+            <!-- Pregunta 3 - Selección Única -->
+            <div class="question-container">
+                <label for="pregunta6">6. ¿Conoce usted acerca de las políticas de uso responsable y ético de la inteligencia artificial?</label>
+                <select id="pregunta6">
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
 
             <!-- Pregunta 4 - Respuesta escrita -->
             <div class="question-container">
-                <label for="pregunta6">6. ¿Qué aspectos mejorarías de nuestro servicio?</label>
-                <input type="text" id="pregunta6">
+                <label for="pregunta7">7. ¿Ha recibido algún tipo de formación o capacitación sobre inteligencia artificial en su área profesional?</label>
+                <select id="pregunta7">
+                    <option value="sic">Sí, formal (cursos, talleres, etc.)</option>
+                    <option value="sit">Sí, de forma autodidacta</option>
+                    <option value="no">No</option>
+                </select>
             </div>
 
             <!-- Pregunta 5 - Respuesta escrita -->
             <div class="question-container">
-                <label for="pregunta5">5. ¿Algún comentario adicional?</label>
-                <input type="text" id="pregunta5">
+                <label for="pregunta8">8. ¿Ha recibido algún tipo de formación o capacitación sobre inteligencia artificial en su área profesional?</label>
+                <select id="pregunta8">
+                    <option value="positivamente">Positivamente</option>
+                    <option value="negativamente">Negativamente</option>
+                    <option value="neutral">Ni sí, ni no, sino todo lo contrario</option>
+                </select>
             </div>
 
             <!-- Pregunta base SI y NO -->
             <div class="question-container">
-                <h2>6. ¿Estás satisfecho con nuestros servicios?</h2>
+                <label for="pregunta9">9. ¿Quiere continuar con la siguiente fase?</label>
                 <div class="button-container">
                     <button id="yes-btn">Sí</button>
                     <button id="no-btn">No</button>
@@ -45,8 +62,30 @@
         </div>
     </div>
 
+    <!-- Modal emergente para la pregunta "¿Estás seguro?" -->
+    <div id="modal-container" class="modal-container">
+        <div class="modal-content">
+            <h2>¿Estás seguro?</h2>
+            <div class="button-container">
+                <button id="confirm-yes-btn">Sí</button>
+                <button id="modal-no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal emergente para la pregunta "¿Quieres un café?" -->
+    <div id="cafe-modal" class="modal-container">
+        <div class="modal-content">
+            <h2>¿Quieres un café?</h2>
+            <div class="button-container">
+                <button id="cafe-yes-btn">Sí</button>
+                <button id="cafe-no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Lógica para mover el botón NO
+        // Lógica para mover el botón NO en la pregunta 9
         const noBtn = document.getElementById('no-btn');
 
         noBtn.addEventListener('mouseover', function() {
@@ -55,6 +94,43 @@
             noBtn.style.position = 'absolute';
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
+        });
+
+        // Lógica para mostrar el modal cuando se hace clic en el botón Sí de la pregunta 9
+        const yesBtn = document.getElementById('yes-btn');
+        const modalContainer = document.getElementById('modal-container');
+        const modalNoBtn = document.getElementById('modal-no-btn');
+
+        yesBtn.addEventListener('click', function() {
+            modalContainer.style.display = 'flex';
+        });
+
+        // Lógica para mover el botón NO dentro del modal
+        modalNoBtn.addEventListener('mouseover', function() {
+            const randomX = Math.random() * (window.innerWidth - modalNoBtn.offsetWidth);
+            const randomY = Math.random() * (window.innerHeight - modalNoBtn.offsetHeight);
+            modalNoBtn.style.position = 'absolute';
+            modalNoBtn.style.left = randomX + 'px';
+            modalNoBtn.style.top = randomY + 'px';
+        });
+
+        // Lógica para mostrar el modal de café cuando se hace clic en "Sí" del primer modal
+        const confirmYesBtn = document.getElementById('confirm-yes-btn');
+        const cafeModal = document.getElementById('cafe-modal');
+        const cafeNoBtn = document.getElementById('cafe-no-btn');
+
+        confirmYesBtn.addEventListener('click', function() {
+            modalContainer.style.display = 'none'; // Oculta el primer modal
+            cafeModal.style.display = 'flex'; // Muestra el modal de café
+        });
+
+        // Lógica para mover el botón NO en el modal de café
+        cafeNoBtn.addEventListener('mouseover', function() {
+            const randomX = Math.random() * (window.innerWidth - cafeNoBtn.offsetWidth);
+            const randomY = Math.random() * (window.innerHeight - cafeNoBtn.offsetHeight);
+            cafeNoBtn.style.position = 'absolute';
+            cafeNoBtn.style.left = randomX + 'px';
+            cafeNoBtn.style.top = randomY + 'px';
         });
 
         // Lógica del botón ENVIAR
